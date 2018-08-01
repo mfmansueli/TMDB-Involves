@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 protocol MoviesViewModelInput {
-    func getUpcomingMovies(page: Int)
+    func getUpcomingMovies()
 }
 
 protocol MoviesViewModelOutput {
@@ -27,9 +27,14 @@ protocol MoviesViewModelType {
 
 final class MoviesViewModel: MoviesViewModelType, MoviesViewModelInput, MoviesViewModelOutput {
     
+    struct Constants {
+        static let one = 1
+    }
+    
     let isLoading: SharedSequence<DriverSharingStrategy, Bool>
     let error: SharedSequence<DriverSharingStrategy, Error>
     let successfullyGetMovies: SharedSequence<DriverSharingStrategy, MovieResult>
+    var page: Int = 0
     
     init(provider: MoviesDataProviderProtocol = MoviesDataProvider()) {
         let errorTracker = ErrorTracker()
@@ -51,7 +56,8 @@ final class MoviesViewModel: MoviesViewModelType, MoviesViewModelInput, MoviesVi
     }
     
     private let upcomingMoviesproperty = PublishSubject<Int>()
-    func getUpcomingMovies(page: Int) {
+    func getUpcomingMovies() {
+        page += Constants.one
         upcomingMoviesproperty.onNext(page)
     }
     

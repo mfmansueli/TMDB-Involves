@@ -75,10 +75,12 @@ class MoviesViewController: ViewController {
         viewModel.output.successfullyGetMovies
             .drive(onNext: { [weak self] result in
                 guard let strongSelf = self else { return }
-                strongSelf.items = result.results
+                strongSelf.items += result.results
                 
             })
             .disposed(by: disposeBag)
+        
+        viewModel.input.getUpcomingMovies()
     }
 }
 
@@ -112,7 +114,7 @@ extension MoviesViewController: UIScrollViewDelegate {
     
     func scrollViewDidReachBottom(_ scrollView: UIScrollView) {
         refreshControl.beginRefreshing()
-        viewModel.input.getUpcomingMovies(page: page)
+        viewModel.input.getUpcomingMovies()
     }
 }
 

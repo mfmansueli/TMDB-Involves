@@ -96,7 +96,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 18 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 19 localization keys.
     struct localizable {
       /// Value: E-mail
       static let emailTextFieldPlaceholder = Rswift.StringResource(key: "EmailTextFieldPlaceholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -134,6 +134,8 @@ struct R: Rswift.Validatable {
       static let loginUsernamePasswordInvalid = Rswift.StringResource(key: "LoginUsernamePasswordInvalid", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Verifique sua conexão com a internet
       static let noInternet = Rswift.StringResource(key: "NoInternet", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: https://image.tmdb.org/t/p/w500/%@
+      static let baseUrlImage = Rswift.StringResource(key: "BaseUrlImage", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       
       /// Value: E-mail
       static func emailTextFieldPlaceholder(_: Void = ()) -> String {
@@ -223,6 +225,11 @@ struct R: Rswift.Validatable {
       /// Value: Verifique sua conexão com a internet
       static func noInternet(_: Void = ()) -> String {
         return NSLocalizedString("NoInternet", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: https://image.tmdb.org/t/p/w500/%@
+      static func baseUrlImage(_ value1: String) -> String {
+        return String(format: NSLocalizedString("BaseUrlImage", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
       fileprivate init() {}

@@ -17,6 +17,7 @@ target 'IMBDInvolves' do
 	pod 'RxSwift'
 	pod 'IGListKit'
   	pod 'MBProgressHUD'
+  	pod 'Kingfisher'
 
   target 'IMBDInvolvesTests' do
     inherit! :search_paths

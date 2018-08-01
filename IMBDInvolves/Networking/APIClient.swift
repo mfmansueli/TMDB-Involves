@@ -46,6 +46,7 @@ protocol RouterType: URLRequestConvertible {
     var path: String { get }
     var method: HTTPMethod { get }
     var params: [String: Any]? { get }
+    var paramsQueryString: [String: Any]? { get }
     var encoding: ParameterEncoding { get }
     var headers: HTTPHeaders? { get }
     var contentType: String { get }
@@ -63,6 +64,9 @@ extension RouterType {
     }
     
     var encoding: ParameterEncoding {
+        if paramsQueryString != nil {
+            return URLEncoding.queryString
+        }
         return JSONEncoding.default
     }
     
@@ -83,6 +87,9 @@ extension RouterType {
         var urlRequest = try URLRequest(url: url, method: method, headers: headers)
         urlRequest.setValue(contentType, forHTTPHeaderField: "Content-Type")
         
+        if paramsQueryString != nil {
+            return try encoding.encode(urlRequest, with: paramsQueryString)
+        }
         return try encoding.encode(urlRequest, with: params)
     }
 }

@@ -67,6 +67,7 @@
             <size key="customSize" width="299" height="80"/>
             <connections>
                 <outlet property="cellView" destination="R7o-z1-wEI" id="0xy-Mc-Kjm"/>
+                <outlet property="movieImageView" destination="Baj-dJ-pTV" id="zg6-Tz-s0x"/>
             </connections>
             <point key="canvasLocation" x="-101.5" y="85"/>
         </collectionViewCell>

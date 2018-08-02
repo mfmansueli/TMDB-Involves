@@ -120,6 +120,12 @@ extension MoviesViewController: UIScrollViewDelegate {
 
 extension MoviesViewController: MoviesCollectionCellDelegate {
     func movieTapped(on movie: Movie) {
-        
+        if let index = items.index(where: { (item) -> Bool in
+            item.id == movie.id
+        }) {
+            let indexPath = IndexPath(row: 0, section: index)
+                collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
+            collectionView.reloadItems(at: [indexPath])
+        }
     }
 }

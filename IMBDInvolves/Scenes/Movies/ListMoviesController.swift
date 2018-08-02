@@ -12,7 +12,7 @@ import IGListKit
 class ListMoviesController: ListSectionController {
     
     struct Constants {
-        static let cellHeight = CGFloat(70)
+        static let cellHeight = CGFloat(330)
     }
     var object: Movie!
     weak var delegate: MoviesViewController!

@@ -20,49 +20,37 @@ class MoviesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var sinopseLabel: UILabel!
-    @IBOutlet weak var genreLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var descriptionMovieView: UIView!
     
     weak var delegate: MoviesCollectionCellDelegate?
     var movie: Movie!
     
     func setup(with item: Movie) {
         self.movie = item
+        cellView.backgroundColor = UIColor.App.background
         
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.numberOfLines = Constants.lines
         titleLabel.font = Font.systemBoldFontSize17
-        titleLabel.textColor = UIColor.App.primary
+        titleLabel.textColor = UIColor.white
         titleLabel.text = item.title
         
-        dateLabel.text = item.releaseDate
+        dateLabel.font = Font.systemRegularFontSize14
+        dateLabel.textColor = UIColor.white
+        dateLabel.text = R.string.localizable.movieReleaseDateLabel(
+            item.releaseDate.formattedDateFromString(
+                currentFormat: R.string.localizable.webFormat(),
+                withFormat: R.string.localizable.visualDate()))
         
         movieImageView.kf.indicatorType = .activity
         if let posterPath = item.posterPath {
         movieImageView.kf.setImage(with: URL(string: R.string.localizable.baseUrlImage(posterPath)))
         }
+        movieImageView.contentMode = .scaleAspectFit
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(movieTapped))
         cellView.addGestureRecognizer(tapGesture)
     }
     
     @objc func movieTapped() {
-        movie.isSelected = !movie.isSelected
-        let height = movie.isSelected
-            ? self.descriptionMovieView.frame.height
-            : -self.descriptionMovieView.frame.height
-        
-        let animator = UIViewPropertyAnimator(duration: Constants.animationDuration,
-                                              timingParameters: UICubicTimingParameters(animationCurve: .easeOut))
-        animator.addAnimations {
-            self.frame = CGRect(x: self.frame.origin.x,
-                                y: self.frame.origin.y,
-                                width: self.frame.width,
-                                height: (self.frame.height + height))
-            self.descriptionMovieView.isHidden = !self.descriptionMovieView.isHidden
-        }
-        animator.startAnimation()
-        delegate?.movieTapped(on: movie)
+        delegate?.movieTapped(on: movie, image: movieImageView.image)
     }
 }

@@ -15,5 +15,6 @@ final class Application {
 
     func configureRootViewController(in window: UIWindow) {
         window.rootViewController = MoviesViewController()
+        window.rootViewController?.navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }

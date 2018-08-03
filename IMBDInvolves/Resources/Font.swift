@@ -20,4 +20,7 @@ struct Font {
     static let systemMediumFontSize17 = UIFont.systemFont(ofSize: 17, weight: .medium)
     static let systemSemiBoldFontSize17 = UIFont.systemFont(ofSize: 17, weight: .semibold)
     static let systemBoldFontSize17 = UIFont.systemFont(ofSize: 17, weight: .bold)
+    
+    
+    static let systemBoldFontSize24 = UIFont.systemFont(ofSize: 24, weight: .bold)
 }

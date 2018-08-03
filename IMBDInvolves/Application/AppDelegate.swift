@@ -17,14 +17,23 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
         ) -> Bool {
-
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.tintColor = UIColor.gray
-
-        Application.shared.configureRootViewController(in: window)
-
-        self.window = window
-        window.makeKeyAndVisible()
+        
+        UIApplication.shared.statusBarStyle = .lightContent
+        
+        UINavigationBar.appearance().titleTextAttributes =
+            [NSAttributedStringKey.foregroundColor: UIColor.white,
+             NSAttributedStringKey.font: Font.systemRegularFontSize17]
+        UINavigationBar.appearance().tintColor = UIColor.App.navigationBackground
+        UINavigationBar.appearance().backgroundColor = UIColor.App.navigationBackground
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController?.navigationController?.interactivePopGestureRecognizer?.cancelsTouchesInView = false
+        window?.rootViewController?.navigationController?.interactivePopGestureRecognizer?.delaysTouchesBegan = false
+        window?.rootViewController?.navigationController?.interactivePopGestureRecognizer?.delaysTouchesEnded = false
+        window?.rootViewController?.navigationController?.setNavigationBarHidden(false, animated: true)
+        window?.rootViewController?.navigationController?.navigationBar.isHidden = false
+        window?.rootViewController = UINavigationController(rootViewController: MoviesViewController())
+        window?.backgroundColor = UIColor.App.background
+        window?.makeKeyAndVisible()
 
         return true
     }

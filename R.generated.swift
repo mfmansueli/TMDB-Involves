@@ -44,14 +44,21 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
   struct nib {
+    /// Nib `DetailMovieViewController`.
+    static let detailMovieViewController = _R.nib._DetailMovieViewController()
     /// Nib `DialogOneButtonViewController`.
     static let dialogOneButtonViewController = _R.nib._DialogOneButtonViewController()
     /// Nib `MoviesCollectionViewCell`.
     static let moviesCollectionViewCell = _R.nib._MoviesCollectionViewCell()
     /// Nib `MoviesViewController`.
     static let moviesViewController = _R.nib._MoviesViewController()
+    
+    /// `UINib(name: "DetailMovieViewController", in: bundle)`
+    static func detailMovieViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.detailMovieViewController)
+    }
     
     /// `UINib(name: "DialogOneButtonViewController", in: bundle)`
     static func dialogOneButtonViewController(_: Void = ()) -> UIKit.UINib {
@@ -96,7 +103,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 19 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 20 localization keys.
     struct localizable {
       /// Value: E-mail
       static let emailTextFieldPlaceholder = Rswift.StringResource(key: "EmailTextFieldPlaceholder", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -104,10 +111,10 @@ struct R: Rswift.Validatable {
       static let loginButton = Rswift.StringResource(key: "LoginButton", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Error
       static let errorMessageComment = Rswift.StringResource(key: "ErrorMessageComment", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Informe seu nome de usuário.
-      static let loginUsernameInvalid = Rswift.StringResource(key: "LoginUsernameInvalid", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Informe sua senha.
-      static let loginPasswordInvalid = Rswift.StringResource(key: "LoginPasswordInvalid", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Filmes
+      static let movieTile = Rswift.StringResource(key: "MovieTile", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Lançamento: %@
+      static let movieReleaseDateLabel = Rswift.StringResource(key: "MovieReleaseDateLabel", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Método não permitido
       static let methodNotAllowed = Rswift.StringResource(key: "MethodNotAllowed", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Não foi encontrado nenhum resultado
@@ -116,8 +123,6 @@ struct R: Rswift.Validatable {
       static let errorMessageGeneric = Rswift.StringResource(key: "ErrorMessageGeneric", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Não foi possível obter o usuário logado.
       static let loggedUserError = Rswift.StringResource(key: "LoggedUserError", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Não reconhecemos seu usuário.
-      static let loginUserNotFound = Rswift.StringResource(key: "LoginUserNotFound", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: O servidor com o nome do host especificado não pôde ser encontrado
       static let domainError = Rswift.StringResource(key: "DomainError", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: OK
@@ -130,12 +135,16 @@ struct R: Rswift.Validatable {
       static let invalidToken = Rswift.StringResource(key: "InvalidToken", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Tempo limite de conexão excedido
       static let connectionExpired = Rswift.StringResource(key: "ConnectionExpired", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Usuário e senha são obrigatórios.
-      static let loginUsernamePasswordInvalid = Rswift.StringResource(key: "LoginUsernamePasswordInvalid", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Verifique sua conexão com a internet
       static let noInternet = Rswift.StringResource(key: "NoInternet", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: dd 'de' MMM 'de' yyyy
+      static let visualDate = Rswift.StringResource(key: "VisualDate", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: https://image.tmdb.org/t/p/w500/%@
       static let baseUrlImage = Rswift.StringResource(key: "BaseUrlImage", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: pt_BR
+      static let localeIdentifier = Rswift.StringResource(key: "LocaleIdentifier", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: yyyy/MM/dd
+      static let webFormat = Rswift.StringResource(key: "WebFormat", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       
       /// Value: E-mail
       static func emailTextFieldPlaceholder(_: Void = ()) -> String {
@@ -152,14 +161,14 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("ErrorMessageComment", bundle: R.hostingBundle, comment: "")
       }
       
-      /// Value: Informe seu nome de usuário.
-      static func loginUsernameInvalid(_: Void = ()) -> String {
-        return NSLocalizedString("LoginUsernameInvalid", bundle: R.hostingBundle, comment: "")
+      /// Value: Filmes
+      static func movieTile(_: Void = ()) -> String {
+        return NSLocalizedString("MovieTile", bundle: R.hostingBundle, comment: "")
       }
       
-      /// Value: Informe sua senha.
-      static func loginPasswordInvalid(_: Void = ()) -> String {
-        return NSLocalizedString("LoginPasswordInvalid", bundle: R.hostingBundle, comment: "")
+      /// Value: Lançamento: %@
+      static func movieReleaseDateLabel(_ value1: String) -> String {
+        return String(format: NSLocalizedString("MovieReleaseDateLabel", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
       /// Value: Método não permitido
@@ -180,11 +189,6 @@ struct R: Rswift.Validatable {
       /// Value: Não foi possível obter o usuário logado.
       static func loggedUserError(_: Void = ()) -> String {
         return NSLocalizedString("LoggedUserError", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// Value: Não reconhecemos seu usuário.
-      static func loginUserNotFound(_: Void = ()) -> String {
-        return NSLocalizedString("LoginUserNotFound", bundle: R.hostingBundle, comment: "")
       }
       
       /// Value: O servidor com o nome do host especificado não pôde ser encontrado
@@ -217,19 +221,29 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("ConnectionExpired", bundle: R.hostingBundle, comment: "")
       }
       
-      /// Value: Usuário e senha são obrigatórios.
-      static func loginUsernamePasswordInvalid(_: Void = ()) -> String {
-        return NSLocalizedString("LoginUsernamePasswordInvalid", bundle: R.hostingBundle, comment: "")
-      }
-      
       /// Value: Verifique sua conexão com a internet
       static func noInternet(_: Void = ()) -> String {
         return NSLocalizedString("NoInternet", bundle: R.hostingBundle, comment: "")
       }
       
+      /// Value: dd 'de' MMM 'de' yyyy
+      static func visualDate(_: Void = ()) -> String {
+        return NSLocalizedString("VisualDate", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// Value: https://image.tmdb.org/t/p/w500/%@
       static func baseUrlImage(_ value1: String) -> String {
         return String(format: NSLocalizedString("BaseUrlImage", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
+      /// Value: pt_BR
+      static func localeIdentifier(_: Void = ()) -> String {
+        return NSLocalizedString("LocaleIdentifier", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: yyyy/MM/dd
+      static func webFormat(_: Void = ()) -> String {
+        return NSLocalizedString("WebFormat", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
@@ -253,6 +267,17 @@ struct R: Rswift.Validatable {
 
 struct _R {
   struct nib {
+    struct _DetailMovieViewController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "DetailMovieViewController"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
     struct _DialogOneButtonViewController: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "DialogOneButtonViewController"

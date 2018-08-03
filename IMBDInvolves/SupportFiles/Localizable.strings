@@ -9,6 +9,9 @@
 // Project
 "ButtonOK" = "OK";
 "BaseUrlImage" = "https://image.tmdb.org/t/p/w500/%@";
+"WebFormat" = "yyyy/MM/dd";
+"VisualDate" = "dd 'de' MMM 'de' yyyy";
+"LocaleIdentifier" = "pt_BR";
 // Project
 
 // Auth - Login
@@ -29,8 +32,6 @@
 "LoggedUserError" = "Não foi possível obter o usuário logado.";
 // Error messages
 
-// LoginViewController
-"LoginUsernameInvalid" = "Informe seu nome de usuário.";
-"LoginPasswordInvalid" = "Informe sua senha.";
-"LoginUsernamePasswordInvalid" = "Usuário e senha são obrigatórios.";
-"LoginUserNotFound" = "Não reconhecemos seu usuário.";
+// MovieViewController
+"MovieTile" = "Filmes";
+"MovieReleaseDateLabel" = "Lançamento: %@";

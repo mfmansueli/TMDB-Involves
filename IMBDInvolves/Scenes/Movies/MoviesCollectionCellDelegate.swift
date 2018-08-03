@@ -9,5 +9,5 @@
 import UIKit
 
 protocol MoviesCollectionCellDelegate: class {
-    func movieTapped(on movie: Movie)
+    func movieTapped(on movie: Movie, image: UIImage?)
 }

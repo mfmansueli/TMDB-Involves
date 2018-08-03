@@ -28,6 +28,8 @@ PODS:
     - RealmSwift (~> 3.0)
     - RxSwift (~> 4.0)
   - RxSwift (4.1.2)
+  - RxTest (4.1.2):
+    - RxSwift (~> 4.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -42,6 +44,7 @@ DEPENDENCIES:
   - RxCocoa
   - RxRealm
   - RxSwift
+  - RxTest
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -59,6 +62,7 @@ SPEC REPOS:
     - RxCocoa
     - RxRealm
     - RxSwift
+    - RxTest
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
@@ -75,7 +79,8 @@ SPEC CHECKSUMS:
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxRealm: a6c6c0a07cb61f34209969ca6657734edfdfff30
   RxSwift: e49536837d9901277638493ea537394d4b55f570
+  RxTest: e634f15fd2c2cd0e0120132ef7a4f7be69ad0393
 
-PODFILE CHECKSUM: 9cf9ef9533a0156c8e580a6dacc81acd64ca3c22
+PODFILE CHECKSUM: 55a97cba348ea77818e05dc85356ccf0d4976750
 
 COCOAPODS: 1.5.2

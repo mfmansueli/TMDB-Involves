@@ -33,6 +33,16 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "18D5E93D1FA2788B00E69715"
+               BuildableName = "dfas.xctest"
+               BlueprintName = "dfas"
+               ReferencedContainer = "container:IMBDInvolves.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "273162912114050800BA7238"
                BuildableName = "IMBDInvolvesTests.xctest"
                BlueprintName = "IMBDInvolvesTests"
                ReferencedContainer = "container:IMBDInvolves.xcodeproj">

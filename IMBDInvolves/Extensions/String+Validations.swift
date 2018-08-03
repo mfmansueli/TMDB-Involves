@@ -10,6 +10,23 @@ import Foundation
 
 extension String {
 
+    func formattedDateFromString(currentFormat: String, withFormat format: String) -> String {
+        if self.isEmpty {
+            return self
+        }
+        
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = currentFormat
+        
+        let date: Date = inputFormatter.date(from: self)!
+        
+        let outputFormatter = DateFormatter()
+        outputFormatter.dateFormat = format
+        outputFormatter.locale =  Locale(identifier: R.string.localizable.localeIdentifier())
+        
+        return outputFormatter.string(from: date)
+    }
+    
     var emptyValue: String {
         return ""
     }

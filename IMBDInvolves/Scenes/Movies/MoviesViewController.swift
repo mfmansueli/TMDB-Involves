@@ -33,9 +33,8 @@ class MoviesViewController: ViewController {
     override func prepare() {
         super.prepare()
         initCollectionView()
+        navigationController?.navigationBar.topItem?.title = R.string.localizable.movieTile()
     }
-    
-    
     
 //    func doRefresh() {
 //        reloadLabel.text = R.string.localizable.barConsumptionReloadTitle()
@@ -48,6 +47,7 @@ class MoviesViewController: ViewController {
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         collectionView.refreshControl = refreshControl
         
+        collectionView.backgroundColor = UIColor.App.background
         adapter.collectionView = collectionView
         adapter.dataSource = self
         adapter.scrollViewDelegate = self
@@ -119,13 +119,14 @@ extension MoviesViewController: UIScrollViewDelegate {
 }
 
 extension MoviesViewController: MoviesCollectionCellDelegate {
-    func movieTapped(on movie: Movie) {
-        if let index = items.index(where: { (item) -> Bool in
-            item.id == movie.id
-        }) {
-            let indexPath = IndexPath(row: 0, section: index)
-                collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
-            collectionView.reloadItems(at: [indexPath])
-        }
+    func movieTapped(on movie: Movie, image: UIImage?) {
+        push(to: DetailMovieViewController(image: image, movie: movie))
+//        if let index = items.index(where: { (item) -> Bool in
+//            item.id == movie.id
+//        }) {
+//            let indexPath = IndexPath(row: 0, section: index)
+//                collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
+//            collectionView.reloadItems(at: [indexPath])
+//        }
     }
 }

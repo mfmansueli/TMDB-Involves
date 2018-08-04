@@ -10,18 +10,12 @@ import Foundation
 
 final class MovieResult: Codable {
     var results: [Movie] = []
-//    var page: Int = 0
-//    var total_results: Int = 0
-//    var total_pages: Int = 0
+    
+    init(results: [Movie]) {
+        self.results = results
+    }
     
     private enum CodingKeys : String, CodingKey {
         case results = "results"
-//        case voteAverage = "vote_average"
-//        case posterPath = "poster_path"
-//        case originalLanguage = "original_language"
-//        case originalTitle = "original_title"
-//        case genreId = "genre_ids"
-//        case backdropPath = "backdrop_path"
-//        case releaseDate = "release_date"
     }
 }

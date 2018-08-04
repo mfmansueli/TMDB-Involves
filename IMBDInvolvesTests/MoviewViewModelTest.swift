@@ -22,7 +22,7 @@ class MoviesViewModelTest: XCTestCase {
     override func setUp() {
         super.setUp()
         testScheduler = TestScheduler(initialClock: 0)
-        viewModel = MoviesViewModel()
+        viewModel = MoviesViewModel(provider: MoviesDataProviderMock())
     }
     
     override func tearDown() {
@@ -40,52 +40,10 @@ class MoviesViewModelTest: XCTestCase {
         viewModel.input.getUpcomingMovies()
         XCTAssertEqual(observer.events.count, 1)
     }
-    
-    //    func testWhenCpfIsInvalid() {
-    //        viewModel.input.cpfChanged("12217344235")
-    //        viewModel.input.passwordChanged("")
-    //        let observer = testScheduler.createObserver(String.self)
-    //        viewModel.output.dataError.drive(observer)
-    //            .disposed(by: disposeBag)
-    //        testScheduler.start()
-    //
-    //        viewModel.input.loginTapped()
-    //        XCTAssertEqual(observer.events.count, 1)
-    //    }
-    //
-    //    func testWhenPasswordIsEmpty() {
-    //        viewModel.input.cpfChanged("12217344234")
-    //        viewModel.input.passwordChanged("")
-    //        let observer = testScheduler.createObserver(String.self)
-    //        viewModel.output.dataError.drive(observer)
-    //            .disposed(by: disposeBag)
-    //        testScheduler.start()
-    //
-    //        viewModel.input.loginTapped()
-    //        XCTAssertEqual(observer.events.count, 1)
-    //    }
-    //
-    //    func testWhenCpfAndPasswordIsValid() {
-    //        viewModel.input.cpfChanged("12217344234")
-    //        viewModel.input.passwordChanged("1234")
-    //        let observer = testScheduler.createObserver(String.self)
-    //        viewModel.output.dataError.drive(observer)
-    //            .disposed(by: disposeBag)
-    //        testScheduler.start()
-    //
-    //        viewModel.input.loginTapped()
-    //        XCTAssertEqual(observer.events.count, 0)
-    //    }
-    //
-    //    func testWhenErrorLogin() {
-    //        viewModel.input.cpfChanged("12217344234")
-    //        viewModel.input.passwordChanged("1234")
-    //        let observer = testScheduler.createObserver(Void.self)
-    //        viewModel.output.successfullyLoggedIn.drive(observer)
-    //            .disposed(by: disposeBag)
-    //        testScheduler.start()
-    //
-    //        viewModel.input.loginTapped()
-    //        XCTAssertEqual(observer.events.count, 0)
-    //    }
+}
+
+final class MoviesDataProviderMock: MoviesDataProviderProtocol {
+    func getUpcomingMovies(page: Int) -> Observable<MovieResult> {
+        return Observable.just(MovieResult(results: []))
+    }
 }

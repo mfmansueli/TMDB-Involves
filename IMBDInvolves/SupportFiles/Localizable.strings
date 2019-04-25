@@ -1,0 +1,37 @@
+/* 
+  Localizable.strings
+  IMDBInvolves
+
+  Created By Mateus on 26/10/17.
+  Copyright © 2018 Mateus Ferneda. All rights reserved.
+*/
+
+// Project
+"ButtonOK" = "OK";
+"BaseUrlImage" = "https://image.tmdb.org/t/p/w500/%@";
+"WebFormat" = "yyyy/MM/dd";
+"VisualDate" = "dd 'de' MMM 'de' yyyy";
+"LocaleIdentifier" = "pt_BR";
+// Project
+
+// Auth - Login
+"EmailTextFieldPlaceholder" = "E-mail";
+"PasswordTextFieldPlaceholder" = "Senha";
+"LoginButton" = "Entrar";
+"RecoveryPassword" = "Recuperar Senha";
+
+// Error messages
+"ErrorMessageComment" = "Error";
+"ErrorMessageGeneric" = "Não foi possível identificar a causa do erro no servidor, ele pode estar temporariamente indisponível.";
+"InvalidToken" = "Sua sessão expirou, por favor acesse o aplicativo novamente!";
+"NoInternet" = "Verifique sua conexão com a internet";
+"DomainError" = "O servidor com o nome do host especificado não pôde ser encontrado";
+"NotFoundError" = "Não foi encontrado nenhum resultado";
+"MethodNotAllowed" = "Método não permitido";
+"ConnectionExpired" = "Tempo limite de conexão excedido";
+"LoggedUserError" = "Não foi possível obter o usuário logado.";
+// Error messages
+
+// MovieViewController
+"MovieTile" = "Filmes";
+"MovieReleaseDateLabel" = "Lançamento: %@";
